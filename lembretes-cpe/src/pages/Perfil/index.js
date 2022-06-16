@@ -1,20 +1,25 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-
+import React from "react";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Container, TitleContainer, Title, InputContainer, Input, Buttons, Button, Cancelar } from "./style";
 
 export default function Lembrete() {
   return (
-    <View style={styles.container}>
-      <Text> Lembrete</Text>
-    </View>
+    <Container>
+      <TitleContainer>
+        <Title>Cadastrar Lembrete</Title>
+      </TitleContainer>
+      <InputContainer>
+        <Input placeholder="    Adicione um Título" />
+        <Input placeholder="    Adicione uma Descrição" />
+      </InputContainer>
+      <Buttons>
+        <Button backgroundColor="#FF0000">
+          <Cancelar>Cancelar</Cancelar>
+        </Button>
+        <Button backgroundColor="#FFE600">
+          <Text>Confirmar</Text>
+        </Button>
+      </Buttons>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop:120,
-  },
-});
-

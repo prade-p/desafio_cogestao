@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         color: "#ffe600",
         fontWeight: "400",
         fontSize:30,
+
     }
 });
 
