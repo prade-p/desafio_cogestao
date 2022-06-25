@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
-import styles from './style'
+import { Image } from 'react-native'
+/* import styles from './style' */
+import { BoxTitle, TextTitle } from "./style";
 
-export default function Title() {
+/* export default function Title() {
     return(
         <View style={styles.boxTitle}>
             <Image 
@@ -11,5 +12,17 @@ export default function Title() {
             />
             <Text style={styles.textTitle}>Lembretes Cpe</Text>
         </View>
+    );
+} */
+
+export default function Title() {
+    return(
+        <BoxTitle >
+            <Image 
+            style={{width:120,height:120,}}
+            source={require('../../images/logo14.png')} 
+            />
+            <TextTitle >Lembretes Cpe</TextTitle>
+        </BoxTitle>
     );
 }

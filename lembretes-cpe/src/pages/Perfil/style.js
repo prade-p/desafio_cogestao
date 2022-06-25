@@ -19,18 +19,37 @@ export const InputContainer = styled.View`
   justify-content: center;
   background-color: #ffe600;
   width: 90%;
-  padding: 5%;
+  padding-top: 5%;
+  padding-bottom: 11%;
   border: 2px solid #000000;
   border-radius: 4px;
   margin-top: 45px;
 `;
 export const Input = styled.TextInput`
+  font-size: 14px;
+  margin-left: 6%;
+  margin-top: 3%;
+  color: #717070;
+  width: 90%;
+`;
+export const TitleInput = styled.View`
+  display: flex;
+  width: 80%;
+  height: 45px;
   background-color: #ffffff;
-  border: 1px;
-  width: 100%;
-  padding: 1%;
-  margin-bottom: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000000;
+  border-radius: 4px;
+  margin-bottom: 5%;
+`;
+export const TextInput = styled.View`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  flex-direction: column;
 `;
 export const Buttons = styled.View`
   flex-direction: row;
@@ -39,16 +58,16 @@ export const Buttons = styled.View`
   padding: 10px;
 `;
 export const Button = styled.TouchableOpacity`
-    border-radius: 50px;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    background-color: ${(props)=>props.backgroundColor};
-    padding-top: 14px;
-    padding-bottom: 14px;
-    margin: 20px;
-    margin-top: 30px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  background-color: ${(props) => props.backgroundColor};
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin: 20px;
+  margin-top: 30px;
 `;
 export const Cancelar = styled.Text`
-    color: #fff;
-`
+  color: #fff;
+`;

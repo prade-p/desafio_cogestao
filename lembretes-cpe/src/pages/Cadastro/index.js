@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import Title from '../../components/Title/'
+import Title from '../../components/Title/';
 import styles from "../Cadastro/style";
 
 
 
-export default function Cadastro() {
+export default function Cadastro({ navigation }) {
 
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
@@ -36,10 +36,10 @@ export default function Cadastro() {
           placeholder="Digite seu endereço de e-mail"
         />
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonCancelar}>
+          <TouchableOpacity onPress={ () => navigation.navigate('Login')} style={styles.buttonCancelar}>
             <Text style={styles.textCancelar}>Cancelar</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => alert(`${nome} ${email}`)} style={styles.buttonConfirmar}>
+          <TouchableOpacity onPress={() => alert(`nome:${nome}, email:${email}`)} style={styles.buttonConfirmar}>
             <Text style={styles.textConfirmar}>Confirmar</Text>
           </TouchableOpacity>
         </View>

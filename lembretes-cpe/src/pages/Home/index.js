@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Lembrete from "../../components/Lembrete/";
 import styles from "./style";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.titleHome}>
@@ -14,7 +14,7 @@ export default function Home() {
       </View>
       <Lembrete/>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.buttonAdicionar}>
+        <TouchableOpacity style={styles.buttonAdicionar} onPress={ () => navigation.navigate('Lembrete')}>
           <Text>Adicionar Lembrete</Text>
         </TouchableOpacity>
       </View>
