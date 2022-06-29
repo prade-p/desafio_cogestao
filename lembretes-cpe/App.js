@@ -10,6 +10,7 @@ import Cadastro from "./src/pages/Cadastro/";
 import Home from "./src/pages/Home/";
 import Login from "./src/pages/Login/";
 import Perfil from "./src/pages/Perfil/";
+import Editar from "./src/pages/Editar/";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -92,6 +93,15 @@ function Rotas() {
         <Stack.Screen
         name="Lembrete"
         component={Perfil}
+        options={{
+          headerStyle: {
+            backgroundColor: "#FFE600",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Editar"
+        component={Editar}
         options={{
           headerStyle: {
             backgroundColor: "#FFE600",

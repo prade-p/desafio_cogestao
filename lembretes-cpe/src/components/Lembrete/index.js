@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./style";
 
-export default function Lembrete() {
+export default function Lembrete({ navigation }) {
   return (
     <View style={styles.lembreteContainer}>
       <View style={styles.textLembrete}>
@@ -13,7 +13,7 @@ export default function Lembrete() {
         <TouchableOpacity style={styles.buttonExcluir}>
           <Text style={styles.textExcluir}>Excluir</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonEditar}>
+        <TouchableOpacity style={styles.buttonEditar} onPress={ () => navigation.navigate('Editar')}>
           <Text style={styles.textEditar}>Editar Conteúdo</Text>
         </TouchableOpacity>
       </View>
