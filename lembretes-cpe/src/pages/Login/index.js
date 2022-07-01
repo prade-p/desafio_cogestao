@@ -2,12 +2,28 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "./style";
 import Title from "../../components/Title/";
+import api from "../../services/api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Login() {
+export default function Login({ navigation }) {
   
   const [email, setEmail] = useState("")
   
-  
+  function loginUsuario() {
+    api.post('/login', {email})
+    
+    .then ((res) => {
+      navigation.navigate('Home')  
+      AsyncStorage.setItem("@LembratesCPE:Token", res.data.token)
+      .then(() => {
+        alert("Logado com sucesso!")
+      })
+      .catch((error) => { alert(`Falha ao registrar token: ${error.message} `)})
+    })
+    .catch((error) => {
+      alert(`Falha ao logar: ${error.message} `);
+    })
+  }
   
   
   return (
@@ -22,7 +38,7 @@ export default function Login() {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => alert(email)} style={styles.buttonEntrar}>
+        <TouchableOpacity onPress={loginUsuario} style={styles.buttonEntrar}>
           <Text>ENTRAR</Text>
         </TouchableOpacity>
       </View>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import Title from '../../components/Title/';
+import api from '../../services/api';
 import styles from "../Cadastro/style";
 
 
@@ -10,12 +11,23 @@ export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
 
-  async function handleSubmit() {
-    try { 
-      const usuario = await store
-    } catch (error) {
-      
+  function registrarCadastro() {
+    
+    const usuario = {
+      nome,
+      email
     }
+
+    api.post('/usuarios', usuario)
+    .then (() => {
+      alert("Cadastrado com sucesso!");
+      navigation.navigate('Login')  
+      
+    })
+    .catch((error) => {
+      alert(`Falha ao cadastrar: ${error.message} `);
+    })
+
   }
   
   return (
@@ -39,7 +51,7 @@ export default function Cadastro({ navigation }) {
           <TouchableOpacity onPress={ () => navigation.navigate('Login')} style={styles.buttonCancelar}>
             <Text style={styles.textCancelar}>Cancelar</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => alert(`nome:${nome}, email:${email}`)} style={styles.buttonConfirmar}>
+          <TouchableOpacity onPress={registrarCadastro} style={styles.buttonConfirmar}>
             <Text style={styles.textConfirmar}>Confirmar</Text>
           </TouchableOpacity>
         </View>
